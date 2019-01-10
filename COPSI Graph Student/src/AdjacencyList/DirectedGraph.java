@@ -30,22 +30,39 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
 	}
 
     public DirectedGraph(int[][] matrix) {
-        /*this.nodes = new ArrayList<A>();
+        this.nodes = new ArrayList<A>();
 
-	    for(int i=0; i<nodes.size();i++){
-    	    A node = makeNode(i);
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(n) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //Getting the length of the column (which is equal to lines..)
+        //Adding the nodes to the nodes list;
+	    for(int i=0; i<matrix[0].length;i++){
+    	    nodes.add(makeNode(i));
 	    }
 
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(n²) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	    //When he have all nodes, you can put the preds and succs of it;
         for(int i=0; i<nodes.size();i++){
-            A node = makeNode(i);
-        }*/
+            List<A> tmp = new ArrayList<>();
+            for(int j=0;j<nodes.size();j++){
+                if(matrix[i][j] == 1){ //the ij element contains 1 if the i node contains the j nodes in his succs. this also means that the j node have the i node in his preds.
+                    nodes.get(i).getSuccs().add(nodes.get(j));
+                    nodes.get(j).getPreds().add(nodes.get(i));
+                }
+            }
+        }
 
-
+        this.order = nodes.size();
+        this.m = 0; // don't know what this is about
     }
 
     public DirectedGraph(DirectedGraph<A> g) {
-    	// A completer
-
+    	this.nodes = g.nodes;
+    	this.m =g.m;
+    	this.order = g.order;
     }
 
     // ------------------------------------------
@@ -72,21 +89,32 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
     
     @Override
     public boolean isArc(A from, A to) {
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(n) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     	return from.getSuccs().contains(to);
     }
 
     @Override
     public void removeArc(A from, A to) {
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(n) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         if(from.getSuccs().contains(to)){
             from.getSuccs().remove(to);
             to.getPreds().remove(from);
         }
+        this.order -= 1;
     }
 
     @Override
     public void addArc(A from, A to) {
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(1) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         from.getSuccs().add(to);
         to.getPreds().add(from);
+        this.order += 1;
     }
     
     /**
