@@ -139,7 +139,7 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
     	int[][] am = new int[this.order][this.order];
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        // O(n) algorithm
+        // O(n²) algorithm
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     	for(int i = 0; i<this.order; i++){
     	    for(int j=0; j<this.order; j++){
@@ -208,7 +208,7 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         //System.out.println(al);
 
         int[][] am = al.toAdjacencyMatrix();
-        GraphTools.AfficherMatrix(Matrix);
-        
+        GraphTools.AfficherMatrix(am);
+
     }
 }
