@@ -1,15 +1,10 @@
 package AdjacencyList;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
 import java.util.stream.Collectors;
 
 import Abstraction.AbstractListGraph;
-import Collection.Pair;
 import GraphAlgorithms.GraphTools;
 import Nodes.DirectedNode;
 import Abstraction.IDirectedGraph;
@@ -48,7 +43,7 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         for(int i=0; i<nodes.size();i++){
             List<A> tmp = new ArrayList<>();
             for(int j=0;j<nodes.size();j++){
-                if(matrix[i][j] == 1){ //the ij element contains 1 if the i node contains the j nodes in his succs. this also means that the j node have the i node in his preds.
+                if(matrix[j][i] == 1){ //the ij element contains 1 if the i node contains the j nodes in his succs. this also means that the j node have the i node in his preds.
                     nodes.get(i).getSuccs().add(nodes.get(j));
                     nodes.get(j).getPreds().add(nodes.get(i));
                 }
@@ -86,13 +81,17 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
     //--------------------------------------------------
     // 				Methods
     //--------------------------------------------------
-    
+
+    private A getNodeFromDirectNode(DirectedNode dNode){
+	    return nodes.get(dNode.getLabel());
+    }
+
     @Override
     public boolean isArc(A from, A to) {
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // O(n) algorithm
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    	return from.getSuccs().contains(to);
+    	return getNodeFromDirectNode(from).getSuccs().contains(getNodeFromDirectNode(to));
     }
 
     @Override
@@ -100,10 +99,8 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // O(n) algorithm
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if(from.getSuccs().contains(to)){
-            from.getSuccs().remove(to);
-            to.getPreds().remove(from);
-        }
+        getNodeFromDirectNode(from).getSuccs().remove(getNodeFromDirectNode(to));
+        getNodeFromDirectNode(to).getPreds().remove(getNodeFromDirectNode(from));
         this.order -= 1;
     }
 
@@ -112,8 +109,8 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // O(1) algorithm
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        from.getSuccs().add(to);
-        to.getPreds().add(from);
+        getNodeFromDirectNode(from).getSuccs().add(getNodeFromDirectNode(to));
+        getNodeFromDirectNode(to).getPreds().add(getNodeFromDirectNode(from));
         this.order += 1;
     }
     
@@ -139,14 +136,37 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
      */
     @Override
     public int[][] toAdjacencyMatrix() {
-    	// A completer
-        return null;
+    	int[][] am = new int[this.order][this.order];
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(n) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    	for(int i = 0; i<this.order; i++){
+    	    for(int j=0; j<this.order; j++){
+    	        if(nodes.get(i).getSuccs().contains(nodes.get(j))){
+    	            am[i][j] = 1;
+                }else{
+                    am[i][j] = 0;
+                }
+            }
+        }
+
+        return am;
     }
 
     @Override
     public IDirectedGraph computeInverse() {
-    	// A completer
-        return null;
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(n) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        for(A node : nodes){
+            List<DirectedNode> tmp = node.getSuccs();
+            node.setSuccs(node.getPreds());
+            node.setPreds(tmp);
+        }
+        return this;
     }
     
  	
@@ -161,6 +181,13 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
             s+="\n";
         }
         s+="\n";
+        for(DirectedNode n : nodes){
+            s+="preds of "+n+" : ";
+            for(DirectedNode sn : n.getPreds()){
+                s+=sn+" ";
+            }
+            s+="\n";
+        }
         return s;
     }
 
@@ -170,13 +197,18 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         DirectedGraph al = new DirectedGraph(Matrix);
         System.out.println(al);
         DirectedGraph alInv = (DirectedGraph)al.computeInverse();
-        /*System.out.println(alInv);
+        System.out.println(alInv);
+
         al.addArc(new DirectedNode(2), new DirectedNode(5));
-        System.out.println(al);
-        System.out.println(al.isArc(new DirectedNode(2), new DirectedNode(5)));
+        //System.out.println(al);
+        System.out.println("IsEdge Node 2 to Node 5 should be true : " +al.isArc(new DirectedNode(2), new DirectedNode(5)));
+
         al.removeArc(new DirectedNode(2), new DirectedNode(5));
-        System.out.println(al);*/
+        System.out.println("IsEdge Node 2 to Node 5 should be false : " + al.isArc(new DirectedNode(2), new DirectedNode(5)));
+        //System.out.println(al);
+
+        int[][] am = al.toAdjacencyMatrix();
+        GraphTools.AfficherMatrix(Matrix);
         
-       
     }
 }
