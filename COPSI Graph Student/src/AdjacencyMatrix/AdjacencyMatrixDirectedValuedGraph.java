@@ -26,6 +26,9 @@ public class AdjacencyMatrixDirectedValuedGraph extends AdjacencyMatrixDirectedG
 		this.order = mat.length;
 		this.matrix = new int[this.order][this.order];
 		this.matrixCosts = new int[this.order][this.order];
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(n²) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		for(int i =0;i<this.order;i++){
 			for(int j=0;j<this.order;j++){
 				int val = mat[i][j];
@@ -59,15 +62,22 @@ public class AdjacencyMatrixDirectedValuedGraph extends AdjacencyMatrixDirectedG
      */
 	@Override
 	public void removeArc(AbstractNode from, AbstractNode to) {
-		// A completer		
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(1) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		this.matrix[from.getLabel()][to.getLabel()] =0;
+		this.matrixCosts[from.getLabel()][to.getLabel()] =0;
 	}
 
 	/**
      * adds the arc (from,to,cost), we allow the multi-graph. If there is already one initial cost, we keep it.
      */
 	public void addArc(AbstractNode from, AbstractNode to, int cost ) {
-		// A completer		
-		
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(1) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		this.matrix[from.getLabel()][to.getLabel()] = 1 ;
+		this.matrixCosts[from.getLabel()][to.getLabel()] = cost ;
 	}
 	
 	public String toString() {
@@ -89,7 +99,7 @@ public class AdjacencyMatrixDirectedValuedGraph extends AdjacencyMatrixDirectedG
 		AdjacencyMatrixDirectedValuedGraph am = new AdjacencyMatrixDirectedValuedGraph(matrix, matrixValued);
 		System.out.println(am);
 		am.addArc(new DirectedNode(2), new DirectedNode(5), 13);
-		am.addArc(new DirectedNode(2), new DirectedNode(7), 4);
+		am.addArc(new DirectedNode(2), new DirectedNode(7), 4); //we erase the existing arcs.
 		System.out.println(am);
         System.out.println(am.isArc(new DirectedNode(2), new DirectedNode(5)));
         am.removeArc(new DirectedNode(2), new DirectedNode(5));

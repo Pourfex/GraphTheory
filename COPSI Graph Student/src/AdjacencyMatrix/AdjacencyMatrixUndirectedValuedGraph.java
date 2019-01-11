@@ -27,6 +27,9 @@ public class AdjacencyMatrixUndirectedValuedGraph extends AdjacencyMatrixUndirec
 		this.order = mat.length;
 		this.matrix = new int[this.order][this.order];
 		this.matrixCosts = new int[this.order][this.order];
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		// O(n²) algorithm
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		for(int i =0;i<this.order;i++){
 			for(int j=i;j<this.order;j++){
 				int val = mat[i][j];
@@ -62,14 +65,26 @@ public class AdjacencyMatrixUndirectedValuedGraph extends AdjacencyMatrixUndirec
      */
 	@Override
 	public void removeEdge(AbstractNode x, AbstractNode y) {
-		// A completer
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		// O(1) algorithm
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		this.matrix[x.getLabel()][y.getLabel()] = 0;
+		this.matrix[x.getLabel()][y.getLabel()] = 0;
+		this.matrixCosts[x.getLabel()][y.getLabel()] = 0;
+		this.matrixCosts[x.getLabel()][y.getLabel()] = 0;
 	}
 
 	/**
      * adds the edge (x,y,cost), we allow the multi-graph. If there is already one initial cost, we keep it.
      */
 	public void addEdge(AbstractNode x, AbstractNode y, int cost ) {
-		// A completer
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		// O(1) algorithm
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		this.matrix[x.getLabel()][y.getLabel()] = 1;
+		this.matrix[x.getLabel()][y.getLabel()] = 1;
+		this.matrixCosts[x.getLabel()][y.getLabel()] = cost;
+		this.matrixCosts[x.getLabel()][y.getLabel()] = cost;
 	}
 	
 	public String toString() {
