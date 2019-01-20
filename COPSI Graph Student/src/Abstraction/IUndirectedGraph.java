@@ -28,4 +28,9 @@ public interface IUndirectedGraph<A extends AbstractNode> extends IGraph {
 	 * @return a List of nodes representing the neighbors of node x
  	 */
 	List<A> getNeighbors(A x);
+
+	@Override
+	default List<?> getNeighbors(Object x) {
+		return getNeighbors((A) x);
+	}
 }

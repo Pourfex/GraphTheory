@@ -116,7 +116,13 @@ public class AdjacencyMatrixUndirectedGraph extends AbstractMatrixGraph<Undirect
 	public int[][] toAdjacencyMatrix() {
 		return this.matrix;
 	}
-	
+
+	@Override
+	public List<?> getNodes() {
+		//TODO
+		return null;
+	}
+
 	@Override
 	public String toString() {
 		String s = "Adjacency Matrix: \n";

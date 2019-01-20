@@ -38,4 +38,9 @@ public interface IDirectedGraph<A extends AbstractNode> extends IGraph {
 	 * @return a new graph implementing IDirectedGraph interface which is the inverse graph of this
  	 */
 	IDirectedGraph computeInverse();
+
+	@Override
+	default List<?> getNeighbors(Object x) {
+		return getSuccessors((A) x);
+	}
 }

@@ -13,6 +13,8 @@ public abstract class AbstractMatrixGraph<A extends AbstractNode> implements IGr
 		protected  int order;		// Number of vertices
 		protected  int m=0;			// Number of edges/arcs
 		protected  int[][] matrix;	// The adjacency matrix
+
+        private List<AbstractNode> nodes;
 		
     //--------------------------------------------------
     // 				Constructors
@@ -40,7 +42,5 @@ public abstract class AbstractMatrixGraph<A extends AbstractNode> implements IGr
     public int getNbNodes() {
         return this.order;
     }
-
-
 
 }

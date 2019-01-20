@@ -126,6 +126,12 @@ public class AdjacencyMatrixDirectedGraph extends AbstractMatrixGraph<DirectedNo
 	}
 
 	@Override
+	public List<?> getNodes() {
+		//TODO
+		return null;
+	}
+
+	@Override
 	public IDirectedGraph<DirectedNode> computeInverse() {
 		int[][] inverseMatrix = new int[this.order][this.order];
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
