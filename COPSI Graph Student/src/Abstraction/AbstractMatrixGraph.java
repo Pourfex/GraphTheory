@@ -14,7 +14,7 @@ public abstract class AbstractMatrixGraph<A extends AbstractNode> implements IGr
 		protected  int m=0;			// Number of edges/arcs
 		protected  int[][] matrix;	// The adjacency matrix
 
-        private List<AbstractNode> nodes;
+        public List<AbstractNode> nodes;
 		
     //--------------------------------------------------
     // 				Constructors

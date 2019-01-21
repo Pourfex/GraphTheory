@@ -125,10 +125,19 @@ public class AdjacencyMatrixDirectedGraph extends AbstractMatrixGraph<DirectedNo
 		return this.matrix;
 	}
 
+	public DirectedNode makeNode(int label) {
+		return new DirectedNode(label);
+	}
+
 	@Override
 	public List<?> getNodes() {
-		//TODO
-		return null;
+		if(nodes == null){
+			nodes =new ArrayList<>();
+			for(int i=0; i<matrix[0].length; i++){
+				nodes.add(makeNode(i));
+			}
+		}
+		return nodes;
 	}
 
 	@Override

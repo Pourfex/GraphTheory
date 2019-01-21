@@ -117,10 +117,19 @@ public class AdjacencyMatrixUndirectedGraph extends AbstractMatrixGraph<Undirect
 		return this.matrix;
 	}
 
+	public UndirectedNode makeNode(int label) {
+		return new UndirectedNode(label);
+	}
+
 	@Override
 	public List<?> getNodes() {
-		//TODO
-		return null;
+		if(nodes == null){
+			nodes =new ArrayList<>();
+			for(int i=0; i<matrix[0].length; i++){
+				nodes.add(makeNode(i));
+			}
+		}
+		return nodes;
 	}
 
 	@Override
