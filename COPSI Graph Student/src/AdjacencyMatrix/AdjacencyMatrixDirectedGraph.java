@@ -53,17 +53,17 @@ public class AdjacencyMatrixDirectedGraph extends AbstractMatrixGraph<DirectedNo
 
 
 	@Override
-	public List<Integer> getSuccessors(AbstractNode x) {
+	public List<AbstractNode> getSuccessors(AbstractNode x) {
+		List<AbstractNode> l = new ArrayList<AbstractNode>();
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// O(n) algorithm
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		List<Integer> v = new ArrayList<Integer>();
-		for(int i =0;i<this.matrix[x.getLabel()].length;i++){
-			if(this.matrix[x.getLabel()][i]>0){
-				v.add(i);
+		for(int i =0;i<matrix[x.getLabel()].length;i++){
+			if(matrix[x.getLabel()][i]>0){
+				l.add((AbstractNode) getNodes().get(i));
 			}
-		}		
-		return v;
+		}
+		return l;
 	}
 	
 
@@ -172,9 +172,9 @@ public class AdjacencyMatrixDirectedGraph extends AbstractMatrixGraph<DirectedNo
 		int[][] matrix2 = GraphTools.generateGraphData(10, 20, false, false, false, 100001);
 		AdjacencyMatrixDirectedGraph am = new AdjacencyMatrixDirectedGraph(matrix2);
 		System.out.println(am);
-		List<Integer> t = am.getSuccessors(new DirectedNode(1));
+		List<AbstractNode> t = am.getSuccessors(new DirectedNode(1));
 		for(int i =0;i<t.size();i++)
-			System.out.print(t.get(i)+", ");
+			System.out.print(t.get(i).getLabel()+", ");
 		System.out.println();
 		List<Integer> t2 = am.getPredecessors(new DirectedNode(2));
 		for(int i =0;i<t2.size();i++)

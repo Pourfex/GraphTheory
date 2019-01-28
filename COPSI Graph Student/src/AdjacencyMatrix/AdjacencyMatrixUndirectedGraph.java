@@ -59,14 +59,14 @@ public class AdjacencyMatrixUndirectedGraph extends AbstractMatrixGraph<Undirect
 	}
 
 	@Override
-	public List<Integer> getNeighbors(AbstractNode x) {
-		List<Integer> l = new ArrayList<Integer>();
+	public List<AbstractNode> getNeighbors(AbstractNode x) {
+		List<AbstractNode> l = new ArrayList<AbstractNode>();
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// O(n) algorithm
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		for(int i =0;i<matrix[x.getLabel()].length;i++){
 			if(matrix[x.getLabel()][i]>0){
-				l.add(i);
+				l.add((AbstractNode) getNodes().get(i));
 			}
 		}
 		return l;		
@@ -152,9 +152,9 @@ public class AdjacencyMatrixUndirectedGraph extends AbstractMatrixGraph<Undirect
 		AdjacencyMatrixUndirectedGraph am = new AdjacencyMatrixUndirectedGraph(mat2);
 		System.out.println(am);
 		System.out.println("N = "+am.getNbNodes()+ "\n M = "+am.getNbEdges());
-		List<Integer> t2 = am.getNeighbors(new UndirectedNode(2));
+		List<AbstractNode> t2 = am.getNeighbors(new UndirectedNode(2));
 		for(int i =0;i<t2.size();i++)
-			System.out.print(t2.get(i)+", ");
+			System.out.print(t2.get(i).getLabel()+", ");
 		System.out.println("\n");
 		am.addEdge(new UndirectedNode(2), new UndirectedNode(5));
 		System.out.println(am);
