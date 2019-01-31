@@ -1,10 +1,10 @@
 package AdjacencyList;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import Abstraction.AbstractListGraph;
+import Abstraction.AbstractNode;
 import GraphAlgorithms.GraphTools;
 import Nodes.DirectedNode;
 import Abstraction.IDirectedGraph;
@@ -69,8 +69,9 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
 
     @Override
     public List<A> getSuccessors(A x) {
-        return this.getNodes().get(x.getLabel()).getSuccs().stream().map(n -> (A)n).collect(Collectors.toList());
-    }
+        //return this.getNodes().get(x.getLabel()).getSuccs().stream().map(n -> (A)n).collect(Collectors.toList());
+        return (List<A>) x.getSuccs();
+	}
 
     @Override
     public List<A> getPredecessors(A x) {
@@ -167,8 +168,76 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         }
         return this;
     }
-    
- 	
+
+    public List<A> depthFirstSearch(){
+        List<A> nodesVisited = new ArrayList<>();
+
+        boolean[] mark = new boolean[this.order];
+        for(boolean b : mark){
+            b = false;
+        }
+
+        Stack<A> toVisit = new Stack<>();
+        toVisit.add(getNodes().get(0));
+
+        while(nodesVisited.size() != this.order) { //To get a covering forest
+            while (!toVisit.isEmpty()) {
+                A node =  toVisit.pop();
+                nodesVisited.add(node);
+                if (mark[node.getLabel()] == false) {
+                    mark[node.getLabel()] = true;
+                    for (A neighbor : getSuccessors(node)) {
+                        if(!mark[neighbor.getLabel()]){
+                                toVisit.push(neighbor);
+                        }
+                    }
+                }
+            }
+            for(int j=0; j<mark.length; j++){ //we add the first unmarked node to the queue, not adding anything else
+                if(!mark[j]){
+                    toVisit.add(getNodes().get(j));
+                    break;
+                }
+            }
+        }
+        return nodesVisited;
+    }
+
+    public List<A> breathFirstSearch(){
+        List<A> nodesVisited = new ArrayList<>();
+
+        boolean[] mark = new boolean[this.order];
+        for(boolean b : mark){
+            b = false;
+        }
+
+        Queue<A> toVisit = new LinkedList<>();
+        toVisit.add(getNodes().get(0));
+
+        while(nodesVisited.size() != this.order) { //To get a covering forest
+            while (!toVisit.isEmpty()) {
+                A node =  ((LinkedList<A>) toVisit).pop();
+                nodesVisited.add(node);
+                if (mark[node.getLabel()] == false) {
+                    mark[node.getLabel()] = true;
+                    for (A neighbor : getSuccessors(node)) {
+                        if(!mark[neighbor.getLabel()]){
+                            toVisit.add(neighbor);
+                        }
+                    }
+                }
+            }
+            for(int j=0; j<mark.length; j++){ //we add the first unmarked node to the queue, not adding anything else
+                if(!mark[j]){
+                    toVisit.add(getNodes().get(j));
+                    break;
+                }
+            }
+        }
+        return nodesVisited;
+    }
+
+
     @Override
     public String toString(){
         String s = "";
@@ -208,6 +277,13 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
 
         int[][] am = al.toAdjacencyMatrix();
         GraphTools.AfficherMatrix(am);
+
+        System.out.println(al);
+        System.out.println("Depth explore shoudl give :" + "[node-0, node-4 , node-1, node-3, node-2, node-9, node-7, node-5, node-6, node-8]");
+        System.out.println(al.depthFirstSearch());
+        System.out.println(al.breathFirstSearch());
+
+
 
     }
 }

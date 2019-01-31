@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="300f598d-36fe-42a4-ac62-fb71015aa7ca" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/bin/AdjacencyList/DirectedGraph.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AdjacencyList/DirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdjacencyList/DirectedGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdjacencyList/DirectedValuedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdjacencyList/DirectedValuedGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdjacencyList/UndirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdjacencyList/UndirectedGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdjacencyList/UndirectedValuedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdjacencyList/UndirectedValuedGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixDirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixDirectedGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixDirectedValuedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixDirectedValuedGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixUndirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixUndirectedGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixUndirectedValuedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixUndirectedValuedGraph.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/FIL_Graph$DirectedGraph.ic" NAME="DirectedGraph Coverage Results" MODIFIED="1547140384795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/FIL_Graph$DirectedGraph.ic" NAME="DirectedGraph Coverage Results" MODIFIED="1548962097284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>AdjacencyList.*</FILTER>
     </SUITE>
   </component>
@@ -38,51 +32,78 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="61" />
+          <entry key="java" value="65" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="61" />
+          <entry key="JAVA" value="65" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2827" />
+          <entry key="java" value="3249" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2827" />
+          <entry key="JAVA" value="3249" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixUndirectedGraph.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1707">
-              <caret line="22" column="4" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixUndirectedValuedGraph.java">
+        <entry file="file://$PROJECT_DIR$/src/AdjacencyList/DirectedGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-741">
-              <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
+            <state relative-caret-position="-626">
+              <caret line="224" column="39" selection-start-line="224" selection-start-column="39" selection-end-line="224" selection-end-column="39" />
+              <folding>
+                <element signature="e#4897#4898#0" expanded="true" />
+                <element signature="e#4955#4956#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixDirectedGraph.java">
+        <entry file="file://$PROJECT_DIR$/src/Nodes/DirectedNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="34" column="9" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="34" selection-end-column="9" />
+            <state relative-caret-position="198">
+              <caret line="44" column="30" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
+              <folding>
+                <element signature="e#1311#1312#0" expanded="true" />
+                <element signature="e#1344#1345#0" expanded="true" />
+                <element signature="e#1469#1470#0" expanded="true" />
+                <element signature="e#1497#1498#0" expanded="true" />
+                <element signature="e#1758#1759#0" expanded="true" />
+                <element signature="e#1789#1790#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Abstraction/AbstractNode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
+              <folding>
+                <element signature="e#804#805#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Abstraction/AbstractListGraph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="314">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
+              <folding>
+                <element signature="e#1011#1012#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -96,7 +117,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Abstraction/AbstractListGraph.java" />
-        <option value="$PROJECT_DIR$/src/AdjacencyList/DirectedGraph.java" />
         <option value="$PROJECT_DIR$/src/AdjacencyList/UndirectedGraph.java" />
         <option value="$PROJECT_DIR$/src/AdjacencyList/DirectedValuedGraph.java" />
         <option value="$PROJECT_DIR$/src/AdjacencyList/UndirectedValuedGraph.java" />
@@ -104,6 +124,7 @@
         <option value="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixDirectedValuedGraph.java" />
         <option value="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixUndirectedGraph.java" />
         <option value="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixUndirectedValuedGraph.java" />
+        <option value="$PROJECT_DIR$/src/AdjacencyList/DirectedGraph.java" />
       </list>
     </option>
   </component>
@@ -187,7 +208,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548960207611" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548963413892" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -207,20 +228,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.AdjacencyMatrixUndirectedValuedGraph">
-    <configuration name="AdjacencyMatrixDirectedGraph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AdjacencyMatrix.AdjacencyMatrixDirectedGraph" />
-      <module name="FIL Graph" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="AdjacencyMatrix.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.DirectedGraph">
     <configuration name="AdjacencyMatrixUndirectedGraph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AdjacencyMatrix.AdjacencyMatrixUndirectedGraph" />
       <module name="FIL Graph" />
@@ -240,6 +248,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="AdjacencyMatrix.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DirectedGraph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="AdjacencyList.DirectedGraph" />
+      <module name="FIL Graph" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="AdjacencyList.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -275,18 +296,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.UndirectedValuedGraph" />
-      <item itemvalue="Application.AdjacencyMatrixDirectedGraph" />
       <item itemvalue="Application.UndirectedGraph" />
       <item itemvalue="Application.AdjacencyMatrixUndirectedGraph" />
       <item itemvalue="Application.AdjacencyMatrixUndirectedValuedGraph" />
+      <item itemvalue="Application.DirectedGraph" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DirectedGraph" />
         <item itemvalue="Application.AdjacencyMatrixUndirectedValuedGraph" />
         <item itemvalue="Application.AdjacencyMatrixUndirectedGraph" />
         <item itemvalue="Application.UndirectedGraph" />
         <item itemvalue="Application.UndirectedValuedGraph" />
-        <item itemvalue="Application.AdjacencyMatrixDirectedGraph" />
       </list>
     </recent_temporary>
   </component>
@@ -307,7 +328,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13928000" />
+    <option name="totallyTimeSpent" value="17145000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -322,7 +343,7 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27025586" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27025586" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -331,20 +352,20 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.32917964" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997923" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49733475" visible="true" weight="0.32917964" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4989339" weight="0.3997923" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32917964" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32917964" />
       <window_info anchor="bottom" id="Tool Output" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010661" side_tool="true" visible="true" weight="0.32917964" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49946696" weight="0.32917964" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5026652" side_tool="true" visible="true" weight="0.32917964" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4989339" weight="0.32917964" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="ANTLR Preview" order="13" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.498452" weight="0.2489339" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
@@ -352,7 +373,7 @@
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32995737" />
+      <window_info anchor="right" id="Coverage" order="9" sideWeight="0.501548" side_tool="true" visible="true" weight="0.2489339" />
     </layout>
     <layout-to-restore>
       <window_info id="Designer" order="0" />
@@ -396,13 +417,11 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/AdjacencyList/DirectedGraph.java</url>
-          <line>136</line>
-          <properties class="AdjacencyList.DirectedGraph" method="toAdjacencyMatrix">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="1" />
+          <line>189</line>
+          <properties />
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -461,13 +480,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Nodes/DirectedNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Abstraction/IGraph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -488,16 +500,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Abstraction/AbstractNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="e#804#805#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Abstraction/IUndirectedGraph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -505,28 +507,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Abstraction/AbstractListGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="27" column="8" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="19" />
-          <folding>
-            <element signature="e#983#984#0" expanded="true" />
-            <element signature="e#1011#1012#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AdjacencyList/DirectedValuedGraph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="449">
           <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdjacencyList/DirectedGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -558,17 +542,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixUndirectedGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1707">
-          <caret line="22" column="4" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixUndirectedValuedGraph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-741">
           <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixUndirectedGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1693">
+          <caret line="22" column="4" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Abstraction/AbstractListGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="e#1011#1012#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Abstraction/AbstractNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="e#804#805#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Nodes/DirectedNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="44" column="30" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
+          <folding>
+            <element signature="e#1311#1312#0" expanded="true" />
+            <element signature="e#1344#1345#0" expanded="true" />
+            <element signature="e#1469#1470#0" expanded="true" />
+            <element signature="e#1497#1498#0" expanded="true" />
+            <element signature="e#1758#1759#0" expanded="true" />
+            <element signature="e#1789#1790#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdjacencyList/DirectedGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-626">
+          <caret line="224" column="39" selection-start-line="224" selection-start-column="39" selection-end-line="224" selection-end-column="39" />
+          <folding>
+            <element signature="e#4897#4898#0" expanded="true" />
+            <element signature="e#4955#4956#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
