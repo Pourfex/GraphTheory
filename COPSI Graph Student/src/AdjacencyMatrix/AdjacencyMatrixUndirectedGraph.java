@@ -27,18 +27,18 @@ public class AdjacencyMatrixUndirectedGraph extends AbstractMatrixGraph<Undirect
 	
 	public AdjacencyMatrixUndirectedGraph(int[][] mat) {
 		this.order=mat.length;
-		this.matrix = new int[this.order][this.order];
+		this.matrix = mat;
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// O(n²) algorithm
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		for(int i =0;i<this.order;i++){
 			for(int j=i;j<this.order;j++){
-				int val = mat[i][j];
-				this.matrix[i][j] = val;
-				this.matrix[j][i] = val;
-				this.m += val;	 
+				if(this.matrix[i][j] > 0 ){
+					this.m+=1;
+					this.matrix[j][i] = this.matrix[i][j];
+				}
 			}
-		}	
+		}
 	}
 	
 	public AdjacencyMatrixUndirectedGraph(IUndirectedGraph g) {

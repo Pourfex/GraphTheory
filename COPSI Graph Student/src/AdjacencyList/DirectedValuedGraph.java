@@ -34,12 +34,13 @@ public class DirectedValuedGraph extends DirectedGraph<DirectedNode> {
                     nodes.get(i).addCosts(matrixVal[i][j]);
                     nodes.get(j).getPreds().add(nodes.get(i));
                     nodes.get(j).addCostsInv(matrixVal[i][j]);
+                    this.m ++;
                 }
             }
         }
 
         this.order = nodes.size();
-        this.m = 0; // don't know what this is about
+
     }
 
     // ------------------------------------------

@@ -45,12 +45,12 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
                 if(matrix[i][j] == 1){ //the ij element contains 1 if the i node contains the j nodes in his succs. this also means that the j node have the i node in his preds.
                     nodes.get(i).getSuccs().add(nodes.get(j));
                     nodes.get(j).getPreds().add(nodes.get(i));
+                    this.m ++;
                 }
             }
         }
 
         this.order = nodes.size();
-        this.m = 0; // don't know what this is about
     }
 
     public DirectedGraph(DirectedGraph<A> g) {

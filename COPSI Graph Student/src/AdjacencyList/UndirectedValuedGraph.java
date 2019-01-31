@@ -35,12 +35,13 @@ public class UndirectedValuedGraph extends UndirectedGraph<UndirectedNode> {
                     nodes.get(i).addCosts(matrixVal[i][j]);
                     nodes.get(j).getNeighbors().add(nodes.get(i));
                     nodes.get(j).addCosts(matrixVal[i][j]);
+                    this.m ++;
                 }
             }
         }
 
         this.order = nodes.size();
-        this.m = 0; // don't know what this is about
+
     }
 
     //--------------------------------------------------

@@ -26,6 +26,7 @@ public class UndirectedGraph<A extends UndirectedNode> extends AbstractListGraph
         for (UndirectedNode i : nodes) {
             this.m += i.getNbNeigh();
         }
+        this.order = nodes.size();
     }
 
     public UndirectedGraph(int[][] matrix) {
@@ -50,12 +51,13 @@ public class UndirectedGraph<A extends UndirectedNode> extends AbstractListGraph
                 if(matrix[j][i] == 1){ //the ij element contains 1 if the i node contains the j nodes in his succs. this also means that the j node have the i node in his preds.
                     nodes.get(i).getNeighbors().add(nodes.get(j));
                     nodes.get(j).getNeighbors().add(nodes.get(i));
+                    this.m ++;
                 }
             }
         }
 
         this.order = nodes.size();
-        this.m = 0; // don't know what this is about
+
     }
 
     public UndirectedGraph(UndirectedGraph<A> g) {

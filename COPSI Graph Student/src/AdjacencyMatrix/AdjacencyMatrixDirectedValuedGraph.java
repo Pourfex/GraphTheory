@@ -22,22 +22,8 @@ public class AdjacencyMatrixDirectedValuedGraph extends AdjacencyMatrixDirectedG
 	//-------------------------------------------------- 
 
 	public AdjacencyMatrixDirectedValuedGraph(int[][] mat, int[][] matrixVal) {
-		super();
-		this.order = mat.length;
-		this.matrix = new int[this.order][this.order];
-		this.matrixCosts = new int[this.order][this.order];
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        // O(n²) algorithm
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		for(int i =0;i<this.order;i++){
-			for(int j=0;j<this.order;j++){
-				int val = mat[i][j];
-				int cost = matrixVal[i][j]; 
-				this.matrix[i][j] = val;				
-				this.matrixCosts[i][j] = cost; 
-				this.m += val;					
-			}
-		}
+		super(mat);
+		this.matrixCosts = matrixVal;
 	}
 
 

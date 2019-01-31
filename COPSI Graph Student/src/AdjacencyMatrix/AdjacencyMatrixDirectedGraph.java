@@ -25,12 +25,12 @@ public class AdjacencyMatrixDirectedGraph extends AbstractMatrixGraph<DirectedNo
 	
 	public AdjacencyMatrixDirectedGraph(int[][] M) {
 		this.order=M.length;
-		this.matrix = new int[this.order][this.order];
+		this.matrix = M;
 		for(int i =0;i<this.order;i++){
 			for(int j=0;j<this.order;j++){
-				int val = M[i][j];
-				this.matrix[i][j] = val;
-				this.m+=val; 
+				if(this.matrix[i][j] > 0 ){
+					this.m+=1;
+				}
 			}
 		}
 	}

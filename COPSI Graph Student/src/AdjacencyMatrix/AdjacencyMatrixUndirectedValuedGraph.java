@@ -23,24 +23,9 @@ public class AdjacencyMatrixUndirectedValuedGraph extends AdjacencyMatrixUndirec
 	//-------------------------------------------------- 
 
 	public AdjacencyMatrixUndirectedValuedGraph(int[][] mat, int[][] matrixVal) {
-		super();
+		super(mat);
 		this.order = mat.length;
-		this.matrix = new int[this.order][this.order];
-		this.matrixCosts = new int[this.order][this.order];
-		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		// O(n²) algorithm
-		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		for(int i =0;i<this.order;i++){
-			for(int j=i;j<this.order;j++){
-				int val = mat[i][j];
-				int cost = matrixVal[i][j]; 
-				this.matrix[i][j] = val;
-				this.matrix[j][i] = val;
-				this.matrixCosts[i][j] = cost;
-				this.matrixCosts[j][i] = cost; 
-				this.m += val;					
-			}
-		}
+		this.matrixCosts = matrixVal;
 	}
 
 
