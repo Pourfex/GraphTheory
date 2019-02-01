@@ -186,7 +186,7 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
                 nodesVisited.add(node);
                 mark[node.getLabel()] = true;
                 for (A neighbor : getSuccessors(node)) {
-                    if(!mark[neighbor.getLabel()]){
+                    if(!mark[neighbor.getLabel()] && !toVisit.contains(neighbor)){
                         toVisit.push(neighbor);
                     }
                 }
@@ -194,7 +194,7 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
 
             for(int j=0; j<mark.length; j++){ //we add the first unmarked node to the queue, not adding anything else
                 if(!mark[j]){
-                    toVisit.add(getNodes().get(j));
+                    toVisit.push(getNodes().get(j));
                     break;
                 }
             }
@@ -217,12 +217,10 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
             while (!toVisit.isEmpty()) {
                 A node =  ((LinkedList<A>) toVisit).pop();
                 nodesVisited.add(node);
-                if (mark[node.getLabel()] == false) {
-                    mark[node.getLabel()] = true;
-                    for (A neighbor : getSuccessors(node)) {
-                        if(!mark[neighbor.getLabel()]){
-                            toVisit.add(neighbor);
-                        }
+                mark[node.getLabel()] = true;
+                for (A neighbor : getSuccessors(node)) {
+                    if(!mark[neighbor.getLabel()] && !toVisit.contains(neighbor)){
+                        toVisit.add(neighbor);
                     }
                 }
             }
@@ -275,6 +273,7 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         //System.out.println(al);
 
 
+        //Profondeur à droite et largeur a gauche
         //GRAPH HAVE BEEN INVERSED
         int[][] am = al.toAdjacencyMatrix();
         GraphTools.AfficherMatrix(am);
@@ -282,9 +281,16 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         System.out.println(al);
         System.out.println("Depth explore should give : \n" + "[node-0, node-4 , node-1, node-8, node-3, node-7, node-2, node-9, node-5, node-6]");
         System.out.println("Depth explore gave : \n" + al.depthFirstSearch());
-        System.out.println("Breath explore should give : \n" + "[node-0, node-4 , node-1, node-8, node-3, node-2, node-7, node-9, node-5, node-6]");
+        System.out.println("Breath explore should give : \n" + "[node-0, node-4 , node-1, node-3, node-8, node-2, node-7, node-9, node-5, node-6]");
         System.out.println("Breath explore gave : \n" + al.breathFirstSearch());
 
+        //GRAPH HAVE BEEN INVERSED
+        al.computeInverse();
+        System.out.println(al);
+        System.out.println("Depth explore should give : \n" + "[node-0, node-7 , node-5, node-6, node-3, node-9, node-2, node-1, node-4, node-8]");
+        System.out.println("Depth explore gave : \n" + al.depthFirstSearch());
+        System.out.println("Breath explore should give : \n" + "[node-0, node-3 , node-7, node-1, node-2, node-9, node-5, node-6, node-4, node-8]");
+        System.out.println("Breath explore gave : \n" + al.breathFirstSearch());
 
     }
 }
