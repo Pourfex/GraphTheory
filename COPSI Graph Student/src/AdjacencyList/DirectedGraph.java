@@ -184,15 +184,14 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
             while (!toVisit.isEmpty()) {
                 A node =  toVisit.pop();
                 nodesVisited.add(node);
-                if (mark[node.getLabel()] == false) {
-                    mark[node.getLabel()] = true;
-                    for (A neighbor : getSuccessors(node)) {
-                        if(!mark[neighbor.getLabel()]){
-                                toVisit.push(neighbor);
-                        }
+                mark[node.getLabel()] = true;
+                for (A neighbor : getSuccessors(node)) {
+                    if(!mark[neighbor.getLabel()]){
+                        toVisit.push(neighbor);
                     }
                 }
             }
+
             for(int j=0; j<mark.length; j++){ //we add the first unmarked node to the queue, not adding anything else
                 if(!mark[j]){
                     toVisit.add(getNodes().get(j));
@@ -275,14 +274,16 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         System.out.println("IsEdge Node 2 to Node 5 should be false : " + al.isArc(new DirectedNode(2), new DirectedNode(5)));
         //System.out.println(al);
 
+
+        //GRAPH HAVE BEEN INVERSED
         int[][] am = al.toAdjacencyMatrix();
         GraphTools.AfficherMatrix(am);
 
         System.out.println(al);
-        System.out.println("Depth explore shoudl give :" + "[node-0, node-4 , node-1, node-3, node-2, node-9, node-7, node-5, node-6, node-8]");
-        System.out.println(al.depthFirstSearch());
-        System.out.println(al.breathFirstSearch());
-
+        System.out.println("Depth explore should give : \n" + "[node-0, node-4 , node-1, node-8, node-3, node-7, node-2, node-9, node-5, node-6]");
+        System.out.println("Depth explore gave : \n" + al.depthFirstSearch());
+        System.out.println("Breath explore should give : \n" + "[node-0, node-4 , node-1, node-8, node-3, node-2, node-7, node-9, node-5, node-6]");
+        System.out.println("Breath explore gave : \n" + al.breathFirstSearch());
 
 
     }
