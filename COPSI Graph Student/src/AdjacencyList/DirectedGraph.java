@@ -234,6 +234,160 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         return nodesVisited;
     }
 
+    public List<List<A>> strongConnexity(){
+        List<A> startingConnexityNodes = new ArrayList<>();
+        int[] startExplore = new int[this.order];
+        int[] endExplore = new int[this.order];
+
+        Arrays.fill(startExplore, -1);
+        Arrays.fill(endExplore, -1);
+
+        int[] time = new int[1];
+        time[0] = 0;
+
+        Deque<DirectedNode> result = new ArrayDeque<>();
+        List<DirectedNode> visited = new ArrayList<>();
+
+        while(! allExplore(endExplore)){
+            A node = this.getNodes().get(getFirstNonExplored(endExplore));
+            startingConnexityNodes.add(node);
+            depthSearchInit(node,startExplore,endExplore, time, result, visited);
+        }
+
+        List<List<A>> connexElements = getConnexElements(startingConnexityNodes, visited);
+
+        Collections.reverse(visited);
+        List<DirectedNode> inverseVisited = new ArrayList<>();
+        inverseVisited.addAll(visited);
+
+        this.computeInverse();
+
+        startingConnexityNodes = new ArrayList<>();
+
+        Arrays.fill(startExplore, -1);
+        Arrays.fill(endExplore, -1);
+
+        time[0] = 0;
+        result = new ArrayDeque<>();
+        visited = new ArrayList<>();
+
+        while(! allExplore(endExplore)){
+            A node = this.getNodes().get(getLastVisitedNonExplored(endExplore,inverseVisited));
+            startingConnexityNodes.add(node);
+            depthSearchInit(node,startExplore,endExplore, time, result, visited);
+        }
+
+        List<List<A>> connexElementsInverse = getConnexElements(startingConnexityNodes, visited);
+
+
+        this.computeInverse();
+        return getSandwich(connexElements, connexElementsInverse, visited.size());
+
+    }
+
+    private List<List<A>> getSandwich(List<List<A>> connexElements, List<List<A>> connexElementsInverse, int numberOfNodes) {
+        List<List<A>> result = new ArrayList<>();
+        while(!resultIsFull(result, numberOfNodes)){
+            for(List<A> nodesList : connexElements){
+                for(List<A> nodesListInverse : connexElementsInverse){
+                    List<A> tmp = new ArrayList<>();
+                    for(A node : nodesList){
+                        if(nodesListInverse.contains(node)){
+                            tmp.add(node);
+                        }
+                    }
+                    if(!tmp.isEmpty()){
+                        result.add(tmp);
+                    }
+                }
+            }
+
+            for(List<A> nodesList : connexElements){
+                if(nodesList.isEmpty()){
+                    connexElements.remove(nodesList);
+                }
+            }
+
+            for(List<A> nodesList : connexElementsInverse){
+                if(nodesList.isEmpty()){
+                    connexElementsInverse.remove(nodesList);
+                }
+            }
+        }
+        return result;
+    }
+
+    private boolean resultIsFull(List<List<A>> result, int numberOfNodes) {
+        int count = 0;
+        for(List<A> tmp : result){
+            count += tmp.size();
+        }
+        return numberOfNodes==count;
+    }
+
+    private int getLastVisitedNonExplored(int[] endExplore, List<DirectedNode> inverseVisited) {
+        for(DirectedNode node : inverseVisited){
+            if(endExplore[node.getLabel()] == -1){
+                return node.getLabel();
+            }
+        }
+        return 0;
+    }
+
+    private List<List<A>> getConnexElements(List<A> startingConnexityNodes, List<DirectedNode> visited) {
+        List<List<A>> result = new ArrayList<>();
+        List<A> tmp = new ArrayList<>();
+        for(DirectedNode node : visited){
+            if(startingConnexityNodes.contains(node)){
+                if(tmp.size() != 0){
+                    result.add(tmp);
+                }
+                tmp = new ArrayList<>();
+            }
+            tmp.add((A)node);
+        }
+        result.add(tmp);
+        return result;
+    }
+
+    private boolean allExplore(int[] endExplore) {
+        try{
+            getFirstNonExplored(endExplore);
+            return false;
+        }catch(Exception e){
+            return true;
+        }
+    }
+
+    private int getFirstNonExplored(int[] endExplore) {
+        for(int i=0; i<endExplore.length; i++){
+            if(endExplore[i] == -1){
+                return i;
+            }
+        }
+        throw new ArrayIndexOutOfBoundsException();
+    }
+
+    private void  depthSearch(DirectedNode start,  List<DirectedNode> visited, Deque<DirectedNode> result, int[] startExplore, int[] endExplore, int[] time) {
+        visited.add(start);
+        startExplore[start.getLabel()] = time[0];
+        time[0] ++;
+        start.getSuccs().forEach(directedNode -> {
+            if(!visited.contains(directedNode)){
+                depthSearch(directedNode, visited, result, startExplore, endExplore, time);
+            }
+        });
+        endExplore[start.getLabel()] = time[0] ;
+        time[0] ++;
+        result.add(start);
+    }
+
+    public Deque<DirectedNode>  depthSearchInit(A startingNode, int[] startExplore, int[] endExplore, int[] time, Deque<DirectedNode> result, List<DirectedNode> visited) {
+
+        depthSearch(startingNode, visited, result, startExplore, endExplore, time);
+        return result;
+    }
+
 
     @Override
     public String toString(){
@@ -291,6 +445,10 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         System.out.println("Depth explore gave : \n" + al.depthFirstSearch());
         System.out.println("Breath explore should give : \n" + "[node-0, node-3 , node-7, node-1, node-2, node-9, node-5, node-6, node-4, node-8]");
         System.out.println("Breath explore gave : \n" + al.breathFirstSearch());
+
+        System.out.println("Strong connexity should give : \n" + "[[node 8] , [node-4] ,[node-5 , node-6] , [node-0, node-3, node-1, node-2, node-7, node-9]");
+        System.out.println("Strong connexity gave : \n" + al.strongConnexity());
+
 
     }
 }
