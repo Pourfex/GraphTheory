@@ -173,9 +173,7 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         List<A> nodesVisited = new ArrayList<>();
 
         boolean[] mark = new boolean[this.order];
-        for(boolean b : mark){
-            b = false;
-        }
+        Arrays.fill(mark, false);
 
         Stack<A> toVisit = new Stack<>();
         toVisit.add(getNodes().get(0));
@@ -236,6 +234,7 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
 
     public List<List<A>> strongConnexity(){
         List<A> startingConnexityNodes = new ArrayList<>();
+
         int[] startExplore = new int[this.order];
         int[] endExplore = new int[this.order];
 
@@ -256,10 +255,21 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
 
         List<List<A>> connexElements = getConnexElements(startingConnexityNodes, visited);
 
-        Collections.reverse(visited);
-        List<DirectedNode> inverseVisited = new ArrayList<>();
-        inverseVisited.addAll(visited);
 
+        List<DirectedNode> inverseVisited = new ArrayList<>();
+        /*for(int i =0; i< this.order; i++){
+            inverseVisited.add(getNodes().get(endExplore[i]));
+        }*/
+        SortedMap<Integer, Integer> sortedMap = new TreeMap<>();
+        for(int i =0; i< this.order; i++){
+            sortedMap.put(endExplore[i], getNodes().get(i).getLabel());
+        }
+
+        for(int i =0; i< this.order; i++){
+            inverseVisited.add(getNodes().get(((TreeMap<Integer, Integer>) sortedMap).pollLastEntry().getValue()));
+        }
+
+        //Collections.sort(sortedMap, Comparator.comparing(i -> sortedMap.values().get));
         this.computeInverse();
 
         startingConnexityNodes = new ArrayList<>();
@@ -383,7 +393,6 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
     }
 
     public Deque<DirectedNode>  depthSearchInit(A startingNode, int[] startExplore, int[] endExplore, int[] time, Deque<DirectedNode> result, List<DirectedNode> visited) {
-
         depthSearch(startingNode, visited, result, startExplore, endExplore, time);
         return result;
     }
@@ -446,9 +455,28 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         System.out.println("Breath explore should give : \n" + "[node-0, node-3 , node-7, node-1, node-2, node-9, node-5, node-6, node-4, node-8]");
         System.out.println("Breath explore gave : \n" + al.breathFirstSearch());
 
-        System.out.println("Strong connexity should give : \n" + "[[node 8] , [node-4] ,[node-5 , node-6] , [node-0, node-3, node-1, node-2, node-7, node-9]");
+        System.out.println("Strong connexity should give : \n" + "[[node 8] , [node-4], (node-0], [node-5 , node-6] , [node-3, node-1, node-2, node-7, node-9]");
         System.out.println("Strong connexity gave : \n" + al.strongConnexity());
 
+        //Exemple du cours
 
+        int[][] matrix = new int[][] {
+                {0,0,0,0,0,1,0,0},
+                {0,0,1,0,1,0,0,0},
+                {0,0,0,1,0,0,0,0},
+                {0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,1},
+                {0,0,0,0,0,0,1,0},
+                {1,0,1,1,0,0,0,0},
+                {1,1,0,1,0,0,0,0},
+        };
+
+        GraphTools.AfficherMatrix(matrix);
+        DirectedGraph dgEx = new DirectedGraph(matrix);
+        System.out.println(dgEx);
+
+        System.out.println("Strong connexity should give : \n" + "[[node-1, node-7, node-4], [node-0, node-6, node-5], [node-2], [node-3]]");
+        System.out.println("Strong connexity gave : \n" + dgEx.strongConnexity());
+        
     }
 }
