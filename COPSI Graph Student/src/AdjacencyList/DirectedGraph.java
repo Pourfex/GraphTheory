@@ -4,7 +4,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import Abstraction.AbstractListGraph;
-import Abstraction.AbstractNode;
 import GraphAlgorithms.GraphTools;
 import Nodes.DirectedNode;
 import Abstraction.IDirectedGraph;
@@ -178,6 +177,10 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         Stack<A> toVisit = new Stack<>();
         toVisit.add(getNodes().get(0));
 
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(n+m) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         while(nodesVisited.size() != this.order) { //To get a covering forest
             while (!toVisit.isEmpty()) {
                 A node =  toVisit.pop();
@@ -204,12 +207,14 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         List<A> nodesVisited = new ArrayList<>();
 
         boolean[] mark = new boolean[this.order];
-        for(boolean b : mark){
-            b = false;
-        }
+        Arrays.fill(mark, false);
 
         Queue<A> toVisit = new LinkedList<>();
         toVisit.add(getNodes().get(0));
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(n+m) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         while(nodesVisited.size() != this.order) { //To get a covering forest
             while (!toVisit.isEmpty()) {
@@ -247,29 +252,34 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         Deque<DirectedNode> result = new ArrayDeque<>();
         List<DirectedNode> visited = new ArrayList<>();
 
-        while(! allExplore(endExplore)){
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(n) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        while(!allExplore(endExplore)){
             A node = this.getNodes().get(getFirstNonExplored(endExplore));
             startingConnexityNodes.add(node);
-            depthSearchInit(node,startExplore,endExplore, time, result, visited);
+            depthSearch(node,startExplore,endExplore, time, result, visited);
         }
 
         List<List<A>> connexElements = getConnexElements(startingConnexityNodes, visited);
 
-
         List<DirectedNode> inverseVisited = new ArrayList<>();
-        /*for(int i =0; i< this.order; i++){
-            inverseVisited.add(getNodes().get(endExplore[i]));
-        }*/
         SortedMap<Integer, Integer> sortedMap = new TreeMap<>();
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(n) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         for(int i =0; i< this.order; i++){
             sortedMap.put(endExplore[i], getNodes().get(i).getLabel());
         }
 
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(n) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         for(int i =0; i< this.order; i++){
             inverseVisited.add(getNodes().get(((TreeMap<Integer, Integer>) sortedMap).pollLastEntry().getValue()));
         }
 
-        //Collections.sort(sortedMap, Comparator.comparing(i -> sortedMap.values().get));
         this.computeInverse();
 
         startingConnexityNodes = new ArrayList<>();
@@ -281,22 +291,28 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         result = new ArrayDeque<>();
         visited = new ArrayList<>();
 
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(n) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         while(! allExplore(endExplore)){
             A node = this.getNodes().get(getLastVisitedNonExplored(endExplore,inverseVisited));
             startingConnexityNodes.add(node);
-            depthSearchInit(node,startExplore,endExplore, time, result, visited);
+            depthSearch(node,startExplore,endExplore, time, result, visited);
         }
 
         List<List<A>> connexElementsInverse = getConnexElements(startingConnexityNodes, visited);
 
-
         this.computeInverse();
-        return getSandwich(connexElements, connexElementsInverse, visited.size());
+        return getStrongConnexityElements(connexElements, connexElementsInverse, visited.size());
 
     }
 
-    private List<List<A>> getSandwich(List<List<A>> connexElements, List<List<A>> connexElementsInverse, int numberOfNodes) {
+    private List<List<A>> getStrongConnexityElements(List<List<A>> connexElements, List<List<A>> connexElementsInverse, int numberOfNodes) {
         List<List<A>> result = new ArrayList<>();
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(n²) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         while(!resultIsFull(result, numberOfNodes)){
             for(List<A> nodesList : connexElements){
                 for(List<A> nodesListInverse : connexElementsInverse){
@@ -316,18 +332,21 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
                 if(nodesList.isEmpty()){
                     connexElements.remove(nodesList);
                 }
-            }
+                 }
 
             for(List<A> nodesList : connexElementsInverse){
-                if(nodesList.isEmpty()){
-                    connexElementsInverse.remove(nodesList);
-                }
+                    if(nodesList.isEmpty()){
+                        connexElementsInverse.remove(nodesList);
+                    }
             }
         }
         return result;
     }
 
     private boolean resultIsFull(List<List<A>> result, int numberOfNodes) {
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(n) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         int count = 0;
         for(List<A> tmp : result){
             count += tmp.size();
@@ -336,6 +355,9 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
     }
 
     private int getLastVisitedNonExplored(int[] endExplore, List<DirectedNode> inverseVisited) {
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(n) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         for(DirectedNode node : inverseVisited){
             if(endExplore[node.getLabel()] == -1){
                 return node.getLabel();
@@ -347,6 +369,10 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
     private List<List<A>> getConnexElements(List<A> startingConnexityNodes, List<DirectedNode> visited) {
         List<List<A>> result = new ArrayList<>();
         List<A> tmp = new ArrayList<>();
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(n) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         for(DirectedNode node : visited){
             if(startingConnexityNodes.contains(node)){
                 if(tmp.size() != 0){
@@ -370,6 +396,9 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
     }
 
     private int getFirstNonExplored(int[] endExplore) {
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(n) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         for(int i=0; i<endExplore.length; i++){
             if(endExplore[i] == -1){
                 return i;
@@ -378,24 +407,24 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         throw new ArrayIndexOutOfBoundsException();
     }
 
-    private void  depthSearch(DirectedNode start,  List<DirectedNode> visited, Deque<DirectedNode> result, int[] startExplore, int[] endExplore, int[] time) {
+    private Deque<DirectedNode> depthSearch(A start, int[] startExplore, int[] endExplore, int[] time, Deque<DirectedNode> result, List<DirectedNode> visited) {
         visited.add(start);
         startExplore[start.getLabel()] = time[0];
         time[0] ++;
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // O(n+m) algorithm
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         start.getSuccs().forEach(directedNode -> {
             if(!visited.contains(directedNode)){
-                depthSearch(directedNode, visited, result, startExplore, endExplore, time);
+                depthSearch((A) directedNode, startExplore, endExplore, time,  result, visited);
             }
         });
         endExplore[start.getLabel()] = time[0] ;
         time[0] ++;
         result.add(start);
-    }
-
-    public Deque<DirectedNode>  depthSearchInit(A startingNode, int[] startExplore, int[] endExplore, int[] time, Deque<DirectedNode> result, List<DirectedNode> visited) {
-        depthSearch(startingNode, visited, result, startExplore, endExplore, time);
         return result;
     }
+
 
 
     @Override
@@ -455,7 +484,7 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         System.out.println("Breath explore should give : \n" + "[node-0, node-3 , node-7, node-1, node-2, node-9, node-5, node-6, node-4, node-8]");
         System.out.println("Breath explore gave : \n" + al.breathFirstSearch());
 
-        System.out.println("Strong connexity should give : \n" + "[[node 8] , [node-4], (node-0], [node-5 , node-6] , [node-3, node-1, node-2, node-7, node-9]");
+        System.out.println("\n Strong connexity should give : \n" + "[[node 8] , [node-4], (node-0], [node-5 , node-6] , [node-3, node-1, node-2, node-7, node-9]");
         System.out.println("Strong connexity gave : \n" + al.strongConnexity());
 
         //Exemple du cours
@@ -477,6 +506,6 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
 
         System.out.println("Strong connexity should give : \n" + "[[node-1, node-7, node-4], [node-0, node-6, node-5], [node-2], [node-3]]");
         System.out.println("Strong connexity gave : \n" + dgEx.strongConnexity());
-        
+
     }
 }
