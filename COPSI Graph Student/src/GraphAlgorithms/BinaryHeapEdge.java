@@ -117,6 +117,7 @@ public class BinaryHeapEdge<A extends Object> {
         System.out.println(jarjarBin.test() + "\n");
         while (m > 0) {
             System.out.print("remove " + jarjarBin.remove());
+            System.out.println("\n" + jarjarBin);
             System.out.println(" ok");
             m-=2;
         }
