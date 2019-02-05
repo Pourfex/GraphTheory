@@ -1,6 +1,7 @@
 package GraphAlgorithms;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -19,31 +20,61 @@ public class BinaryHeapEdge<A extends Object> {
     }
 
     public boolean isEmpty() {
-       return true;
-       // A completer
-    	
+       return nodes.isEmpty();
     }
 
     public void insert(A from, A to, int val) {
-    	// A completer
+    	this.nodes.add(new Triple<>(from,to,val));
+    	int index = this.nodes.size() -1 ;
+    	int fatherIndex = Math.round((index-1)/2);
+    	while(val < this.nodes.get(fatherIndex).getThird() && index != 0){
+            Collections.swap(nodes, index, fatherIndex);
+            index = fatherIndex;
+            fatherIndex = Math.round((index-1)/2);
+        }
     }
 
     public Triple<A,A,Integer> remove() {
-    	return null;
-    	// A completer
+        Collections.swap(nodes, 0, nodes.size() -1);
+
+        int val = nodes.get(0).getThird();
+        int index =0;
+        int childrenIndex = minChildrenIndex(index);
+
+        while(val > this.nodes.get(childrenIndex).getThird() && !isLeaf(index)){
+            Collections.swap(nodes, index, childrenIndex);
+            index = childrenIndex;
+            if(!isLeaf(index)){
+                childrenIndex = minChildrenIndex(index);
+            }
+        }
+
+        return nodes.remove(nodes.size() -1);
+    }
+
+    private int minChildrenIndex(int index) {
+        if(isLeaf(index)){
+            throw new UnsupportedOperationException();
+        }
+        if(2*index+2 > nodes.size() -1){
+            return 2*index+1;
+        }
+        return nodes.get(2*index+1).getThird() >= nodes.get(2*index+2).getThird() ? 2*index+1 : 2*index+2;
     }
 
 
     private boolean isLeaf(int src) {
-    	return true;
-    	// A completer
+    	int size = nodes.size() -1 ;
+    	if(2*src+1 >= size){
+    	    return true;
+        }
+        return false;
     }
 
    
 
     public String toString() {
-        return "";
-        // A completer
+        return nodes.toString();
     }
 
     // test recursif pour verifier que fils gauche et fils droit sont bien >= a la racine.
