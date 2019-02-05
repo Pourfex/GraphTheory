@@ -105,6 +105,7 @@ public class AdjacencyMatrixDirectedGraph extends AbstractMatrixGraph<DirectedNo
 		// O(1) algorithm
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		this.matrix[from.getLabel()][to.getLabel()] =0;
+		this.m --;
 	}
 
 	/**
@@ -116,6 +117,7 @@ public class AdjacencyMatrixDirectedGraph extends AbstractMatrixGraph<DirectedNo
 		// O(1) algorithm
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		this.matrix[from.getLabel()][to.getLabel()] = 1 ;
+		this.m ++;
 	}
 	
 	/**

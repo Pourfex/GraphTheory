@@ -102,7 +102,7 @@ public class UndirectedGraph<A extends UndirectedNode> extends AbstractListGraph
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         getNodeFromUndirectNode(x).getNeighbors().remove(getNodeFromUndirectNode(y));
         getNodeFromUndirectNode(y).getNeighbors().remove(getNodeFromUndirectNode(x));
-        this.order -= 1;
+        this.m -= 1;
     }
 
     @Override
@@ -112,7 +112,7 @@ public class UndirectedGraph<A extends UndirectedNode> extends AbstractListGraph
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         getNodeFromUndirectNode(x).getNeighbors().add(getNodeFromUndirectNode(y));
         getNodeFromUndirectNode(y).getNeighbors().add(getNodeFromUndirectNode(x));
-        this.order += 1;
+        this.m += 1;
     }
     
     /**

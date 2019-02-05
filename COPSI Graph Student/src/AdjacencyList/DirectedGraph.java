@@ -100,7 +100,7 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         getNodeFromDirectNode(from).getSuccs().remove(getNodeFromDirectNode(to));
         getNodeFromDirectNode(to).getPreds().remove(getNodeFromDirectNode(from));
-        this.order -= 1;
+        this.m -= 1;
     }
 
     @Override
@@ -110,7 +110,7 @@ public class DirectedGraph<A extends DirectedNode> extends AbstractListGraph<A> 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         getNodeFromDirectNode(from).getSuccs().add(getNodeFromDirectNode(to));
         getNodeFromDirectNode(to).getPreds().add(getNodeFromDirectNode(from));
-        this.order += 1;
+        this.m += 1;
     }
     
     /**

@@ -65,7 +65,7 @@ public class UndirectedValuedGraph extends UndirectedGraph<UndirectedNode> {
         getNodeFromDirectNode(to).getCosts().remove(getNodeFromDirectNode(to).getNeighbors().indexOf(from));
         getNodeFromDirectNode(to).getNeighbors().remove(getNodeFromDirectNode(from));
 
-        this.order -= 1;
+        this.m -= 1;
     }
 
     /**
@@ -79,7 +79,7 @@ public class UndirectedValuedGraph extends UndirectedGraph<UndirectedNode> {
         getNodeFromDirectNode(from).addCosts(cost);
         getNodeFromDirectNode(to).getNeighbors().add(getNodeFromDirectNode(from));
         getNodeFromDirectNode(to).addCosts(cost);
-        this.order += 1;
+        this.m += 1;
     }
     
     

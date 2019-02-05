@@ -57,6 +57,8 @@ public class AdjacencyMatrixUndirectedValuedGraph extends AdjacencyMatrixUndirec
 		this.matrix[x.getLabel()][y.getLabel()] = 0;
 		this.matrixCosts[x.getLabel()][y.getLabel()] = 0;
 		this.matrixCosts[x.getLabel()][y.getLabel()] = 0;
+
+		this.m--;
 	}
 
 	/**
@@ -70,6 +72,7 @@ public class AdjacencyMatrixUndirectedValuedGraph extends AdjacencyMatrixUndirec
 		this.matrix[x.getLabel()][y.getLabel()] = 1;
 		this.matrixCosts[x.getLabel()][y.getLabel()] = cost;
 		this.matrixCosts[x.getLabel()][y.getLabel()] = cost;
+		this.m++;
 	}
 	
 	public String toString() {

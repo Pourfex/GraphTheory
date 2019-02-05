@@ -53,6 +53,7 @@ public class AdjacencyMatrixDirectedValuedGraph extends AdjacencyMatrixDirectedG
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		this.matrix[from.getLabel()][to.getLabel()] =0;
 		this.matrixCosts[from.getLabel()][to.getLabel()] =0;
+		this.m--;
 	}
 
 	/**
@@ -64,6 +65,7 @@ public class AdjacencyMatrixDirectedValuedGraph extends AdjacencyMatrixDirectedG
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		this.matrix[from.getLabel()][to.getLabel()] = 1 ;
 		this.matrixCosts[from.getLabel()][to.getLabel()] = cost ;
+		this.m++;
 	}
 	
 	public String toString() {

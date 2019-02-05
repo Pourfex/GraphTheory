@@ -83,6 +83,7 @@ public class AdjacencyMatrixUndirectedGraph extends AbstractMatrixGraph<Undirect
 		// O(1) algorithm
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		return this.matrix[x.getLabel()][y.getLabel()] > 0;
+
 	}
 	
 	/**
@@ -95,6 +96,7 @@ public class AdjacencyMatrixUndirectedGraph extends AbstractMatrixGraph<Undirect
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		this.matrix[x.getLabel()][y.getLabel()] = 0;
 		this.matrix[y.getLabel()][x.getLabel()] = 0;
+		this.m --;
 	}
 
 	/**
@@ -107,6 +109,7 @@ public class AdjacencyMatrixUndirectedGraph extends AbstractMatrixGraph<Undirect
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		this.matrix[x.getLabel()][y.getLabel()] = 1;
 		this.matrix[y.getLabel()][x.getLabel()] = 1;
+		this.m ++;
 	}
 
 
