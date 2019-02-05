@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="300f598d-36fe-42a4-ac62-fb71015aa7ca" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FIL Graph.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FIL Graph.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdjacencyList/DirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdjacencyList/DirectedGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdjacencyList/UndirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdjacencyList/UndirectedGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdjacencyList/UndirectedValuedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdjacencyList/UndirectedValuedGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixDirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixDirectedGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixDirectedValuedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixDirectedValuedGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixUndirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixUndirectedGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixUndirectedValuedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixUndirectedValuedGraph.java" afterDir="false" />
-    </list>
+    <list default="true" id="300f598d-36fe-42a4-ac62-fb71015aa7ca" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,30 +49,52 @@
         <counts>
           <entry key="class" value="1" />
           <entry key="iml" value="1" />
-          <entry key="java" value="90" />
+          <entry key="java" value="92" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="90" />
+          <entry key="JAVA" value="92" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="6241" />
+          <entry key="java" value="6247" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6241" />
+          <entry key="JAVA" value="6247" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/TestAdjacencyMatrixDirectedValuedGraph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="55" column="22" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixDirectedValuedGraph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -99,10 +111,10 @@
         <option value="$PROJECT_DIR$/src/test/TestUndirectedValuedGraph.java" />
         <option value="$PROJECT_DIR$/src/AdjacencyList/UndirectedValuedGraph.java" />
         <option value="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixUndirectedValuedGraph.java" />
-        <option value="$PROJECT_DIR$/src/test/TestAdjacencyMatrixDirectedValuedGraph.java" />
         <option value="$PROJECT_DIR$/src/test/TestAdjacencyMatrixUndirectedValuedGraph.java" />
         <option value="$PROJECT_DIR$/src/test/TestDirectedGraph.java" />
         <option value="$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixDirectedValuedGraph.java" />
+        <option value="$PROJECT_DIR$/src/test/TestAdjacencyMatrixDirectedValuedGraph.java" />
       </list>
     </option>
   </component>
@@ -183,7 +195,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549378019823" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549378653702" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -308,9 +320,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestSuiteImplemStructure - 2019.02.05 at 15h 18m 25s.xml">
-      <configuration name="TestSuiteImplemStructure" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TestSuiteImplemStructure - 2019.02.05 at 15h 25m 16s.xml">
       <configuration name="TestSuiteImplemStructure" configurationId="JUnit" />
     </history-entry>
@@ -332,9 +341,18 @@
     <history-entry file="TestSuiteImplemStructure - 2019.02.05 at 15h 38m 57s.xml">
       <configuration name="TestSuiteImplemStructure" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TestSuiteImplemStructure - 2019.02.05 at 15h 44m 56s.xml">
+      <configuration name="TestSuiteImplemStructure" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestSuiteImplemStructure - 2019.02.05 at 15h 45m 17s.xml">
+      <configuration name="TestSuiteImplemStructure" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestSuiteImplemStructure - 2019.02.05 at 15h 47m 02s.xml">
+      <configuration name="TestSuiteImplemStructure" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40553000" />
+    <option name="totallyTimeSpent" value="41304000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -347,8 +365,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2793177" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2793177" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -357,14 +376,14 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.79371" weight="0.32917964" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4914712" visible="true" weight="0.3997923" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.79317695" visible="true" weight="0.32917964" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4914712" weight="0.3997923" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32917964" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4989339" weight="0.32917964" />
       <window_info anchor="bottom" id="Tool Output" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50852877" side_tool="true" visible="true" weight="0.3997923" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.20682302" side_tool="true" weight="0.32917964" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4946695" weight="0.32917964" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
@@ -383,36 +402,39 @@
       <window_info anchor="right" id="Coverage" order="9" sideWeight="0.501548" side_tool="true" visible="true" weight="0.2489339" />
     </layout>
     <layout-to-restore>
-      <window_info id="Designer" order="0" />
-      <window_info id="Image Layers" order="1" />
-      <window_info id="UI Designer" order="2" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.25" />
-      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.32917964" />
-      <window_info anchor="bottom" id="Tool Output" order="1" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="3" />
-      <window_info anchor="bottom" id="Database Changes" order="4" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="5" show_stripe_button="false" />
-      <window_info anchor="bottom" id="ANTLR Preview" order="6" />
-      <window_info anchor="bottom" id="Message" order="7" />
-      <window_info anchor="bottom" id="Find" order="8" />
-      <window_info anchor="bottom" id="Run" order="9" visible="true" weight="0.32917964" />
-      <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="13" weight="0.32917964" />
-      <window_info anchor="right" id="Palette" order="0" />
-      <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Maven Projects" order="2" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Commander" order="6" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2793177" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.79317695" visible="true" weight="0.32917964" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4914712" weight="0.3997923" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32917964" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4989339" weight="0.32917964" />
+      <window_info anchor="bottom" id="Tool Output" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.20682302" side_tool="true" visible="true" weight="0.32917964" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4946695" weight="0.32917964" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="ANTLR Preview" order="13" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="14" />
+      <window_info anchor="bottom" id="CheckStyle" order="15" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.498452" weight="0.2489339" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" sideWeight="0.501548" side_tool="true" visible="true" weight="0.2489339" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -699,20 +721,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/TestAdjacencyMatrixDirectedValuedGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="50" column="20" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AdjacencyMatrix/AdjacencyMatrixDirectedValuedGraph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
-          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
+          <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/TestAdjacencyMatrixDirectedValuedGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="55" column="22" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
